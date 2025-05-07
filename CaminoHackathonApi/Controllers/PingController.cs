@@ -9,7 +9,7 @@ namespace CaminoHackathonApi.Controllers
 	{
 		public IPingService _pingService { get; set; } = pingService;
 
-		[HttpGet(Name = "GetWeatherForecast")]
+		[HttpGet]
 		public async Task<ActionResult<string>> Ping([FromHeader] string recipient)
 		{
 			var result = await _pingService.PingAsync(recipient);
