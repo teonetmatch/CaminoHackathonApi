@@ -1,0 +1,6 @@
+@CaminoHackathonApi_HostAddress = http://localhost:5108
+
+GET {{CaminoHackathonApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
