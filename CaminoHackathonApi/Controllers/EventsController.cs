@@ -31,6 +31,8 @@ namespace CaminoHackathonApi.Controllers
 				//	Longitude = eventReceived.Longitude
 				//});
 
+				Console.WriteLine("Hotels retrieved successfully");
+
 				using var httpClient = new HttpClient();
 				var jsonBody = JsonSerializer.Serialize(new TravellerNotification
 				{
