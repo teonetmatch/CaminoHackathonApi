@@ -9,6 +9,11 @@ namespace CaminoHackathonApi
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			builder.WebHost.ConfigureKestrel(options =>
+			{
+				options.ListenAnyIP(args.Length > 0 ? int.Parse(args[0]) : 5108);
+			});
+
 			// Add services to the container.
 
 			builder.Services.AddControllers();
