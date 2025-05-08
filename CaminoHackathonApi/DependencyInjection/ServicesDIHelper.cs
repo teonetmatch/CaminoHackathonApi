@@ -17,7 +17,7 @@ namespace CaminoHackathonApi.DependencyInjection
 
             services.AddScoped<IAccommodationSearchService>(sp =>
             {
-                var channel = sp.GetRequiredService<GrpcChannel>();
+                var channel = GrpcChannel.ForAddress("http://localhost:9090");
                 return new AccommodationSearchClient(channel);
             });
 

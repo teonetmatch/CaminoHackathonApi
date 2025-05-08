@@ -4,11 +4,10 @@ namespace CaminoHackathonApi.Models
 {
     public class AccommodationSearchRequestDto
     {
-        public string WalletAddress { get; set; }
-        public string Market { get; set; }
-        public string Language { get; set; }
-        public string Currency { get; set; }
-        public List<QueryDto> Queries { get; set; } = new();
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 
     public class QueryDto
