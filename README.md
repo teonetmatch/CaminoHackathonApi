@@ -1,4 +1,7 @@
-# CaminoHackathonApi
+# Decode Travel May 2025 - Crete
+
+This is one of two repositories created and developed
+as par tof the Decode Travel occurred in May 2025, at Crete.
 
 # Reference Architecture Diagram
 
@@ -20,7 +23,7 @@ For the Events Service implementation [go here](https://github.com/pmatsinopoulo
   CaminoHackathonApi 8081
   ```
   Note: You can use any port that is available on your machine.
-  
+
 4. You need to have [ngrok](https://ngrok.com/) installed and ready to run.
 5. Run ngrok as `ngrok http 8081` and get the `https://....` given as output.
 6. Go to [Events Service](https://events-service-voja.onrender.com/) and create a subscription for your distributor service. The URL call back should be `https://....<ngrok address.../Events`.
