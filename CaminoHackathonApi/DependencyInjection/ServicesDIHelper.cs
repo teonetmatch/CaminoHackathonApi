@@ -1,6 +1,7 @@
 ﻿using CaminoHackathonApi.Services;
 using Grpc.Net.Client;
 using static Cmp.Services.Ping.V1.PingService;
+using Cmp.Services.Accommodation.V2;
 
 namespace CaminoHackathonApi.DependencyInjection
 {
@@ -13,7 +14,14 @@ namespace CaminoHackathonApi.DependencyInjection
 				var channel = GrpcChannel.ForAddress("http://localhost:9090");
 				return new PingService(new PingServiceClient(channel));
 			});
-			return services;
+
+            services.AddScoped<IAccommodationSearchService>(sp =>
+            {
+                var channel = sp.GetRequiredService<GrpcChannel>();
+                return new AccommodationSearchClient(channel);
+            });
+
+            return services;
 		}
 	}
 }

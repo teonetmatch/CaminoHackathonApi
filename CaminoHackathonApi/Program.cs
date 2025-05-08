@@ -16,8 +16,8 @@ namespace CaminoHackathonApi
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			//Inject generated services
-			builder.Services.AddServices();
+            //Inject generated services
+            builder.Services.AddServices();
 
 			var app = builder.Build();
 
