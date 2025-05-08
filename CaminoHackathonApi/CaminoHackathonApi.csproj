@@ -7,18 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BSR.Chain4travel.Camino-Messenger-Protocol.Grpc.Csharp" Version="1.72.10001.13+ffe2c3741a33" />
     <PackageReference Include="Google.Protobuf" Version="3.30.2" />
     <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+	<PackageReference Include="Grpc.Net.ClientFactory" Version="2.71.0" />
+	  <PackageReference Include="Grpc.Tools" Version="2.72.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+	  
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <Protobuf Include="cmp\types\v1\common.proto" />
-    <Protobuf Include="cmp\services\ping\v1\ping.proto" GrpcServices="Client" />
-  </ItemGroup>-->
 
 </Project>
