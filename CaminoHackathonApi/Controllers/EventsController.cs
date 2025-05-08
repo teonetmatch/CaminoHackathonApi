@@ -1,4 +1,6 @@
-﻿using CaminoHackathonApi.Models;
+﻿using System.Text.Json;
+using System.Text;
+using CaminoHackathonApi.Models;
 using CaminoHackathonApi.Services;
 using Cmp.Services.Accommodation.V1;
 using Microsoft.AspNetCore.Mvc;
@@ -21,15 +23,40 @@ namespace CaminoHackathonApi.Controllers
 			{
 				Console.WriteLine("Searching for hotels...");
 
-				var result = await _searchSvc.SearchAsync(new AccommodationSearchRequestDto
-				{
-					StartDate = eventReceived.StartsAt,
-					EndDate = eventReceived.EndsAt,
-					Latitude = eventReceived.Latitude,
-					Longitude = eventReceived.Longitude
-				});
+				//var result = await _searchSvc.SearchAsync(new AccommodationSearchRequestDto
+				//{
+				//	StartDate = eventReceived.StartsAt,
+				//	EndDate = eventReceived.EndsAt,
+				//	Latitude = eventReceived.Latitude,
+				//	Longitude = eventReceived.Longitude
+				//});
 
-				Console.WriteLine($"Found {result.Results.Count}");
+				using var httpClient = new HttpClient();
+				var jsonBody = JsonSerializer.Serialize(new TravellerNotification
+				{
+					Event = new NotificationEvent
+					{
+						Name = eventReceived.Name,
+						EventType = eventReceived.EventType,
+						StartsAt = eventReceived.StartsAt,
+						EndsAt = eventReceived.EndsAt,
+						Address = "Heraklion"
+					},
+					ResultsPageUrl = "https://example.com"
+				});
+				var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+				var response = await httpClient.PostAsync("https://events-service-voja.onrender.com/notify_travellers", content);
+
+				if (response.IsSuccessStatusCode)
+				{
+					Console.WriteLine("Event notification sent successfully.");
+				}
+				else
+				{
+					Console.WriteLine($"Failed to send event notification. Status Code: {response.StatusCode}");
+				}
+
 			});
 
 			return Ok();
