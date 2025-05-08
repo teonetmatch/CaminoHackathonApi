@@ -1,4 +1,5 @@
-﻿using CaminoHackathonApi.Models;
+﻿using System.Diagnostics;
+using CaminoHackathonApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CaminoHackathonApi.Controllers
@@ -11,6 +12,7 @@ namespace CaminoHackathonApi.Controllers
 		public IActionResult ReceiveEvent([FromBody] Event eventReceived)
 		{
 			var message = $"Event received: {eventReceived.EventType} - {eventReceived.Name} at {eventReceived.StartsAt}";
+			Console.WriteLine(message);
 			return Ok(message);
 		}
 	}
