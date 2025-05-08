@@ -40,7 +40,7 @@ namespace CaminoHackathonApi.Controllers
 						EventType = eventReceived.EventType,
 						StartsAt = eventReceived.StartsAt,
 						EndsAt = eventReceived.EndsAt,
-						Address = "Heraklion"
+						Address = eventReceived.Address
 					},
 					ResultsPageUrl = "https://example.com"
 				});

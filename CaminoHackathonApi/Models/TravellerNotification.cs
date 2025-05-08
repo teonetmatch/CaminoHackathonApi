@@ -18,6 +18,7 @@ namespace CaminoHackathonApi.Models
 		public DateTime StartsAt { get; set; }
 		[JsonPropertyName("ends_at")]
 		public DateTime EndsAt { get; set; }
+		[JsonPropertyName("address")]
 		public string Address { get; set; }
 	}
 }
