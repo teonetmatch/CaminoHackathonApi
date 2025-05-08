@@ -49,7 +49,9 @@ namespace CaminoHackathonApi.Services
                 },
                 SearchParametersGeneric = new Cmp.Types.V2.SearchParameters
                 {
-                    Currency = new Cmp.Types.V2.Currency { IsoCurrency =  new TypesV2.IsoCurrency() }
+                    Currency = new Cmp.Types.V2.Currency { IsoCurrency =  new TypesV2.IsoCurrency() },
+					MaxOptions = 1,
+					IncludeCombinations = false
                 }
             };
 
